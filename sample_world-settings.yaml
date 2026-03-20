@@ -1,0 +1,390 @@
+# ============================================================
+# ファンタジー世界設定ファイル
+# 生成日: 2026-03-20
+# ============================================================
+
+meta:
+  world_name: "アルヴェリア"
+  world_type: "original"
+  story_era: "medieval"
+  primary_region: "ガルディア王国（首都：リウムス）"
+
+# ============================================================
+# 地理と物理的特徴
+# ============================================================
+geography:
+  planet:
+    multiple_suns: false
+    moon_count: 2  # 大きな銀月と小さな赤月
+    notes: "赤月が満ちる夜は魔物の活性が上がるとされる"
+
+  terrain:
+    major_mountain_ranges:
+      - name: "ドラゴン山脈"
+        description: "北方に連なる険峻な山脈。ドワーフの王国が点在し、深部にはドラゴンが巣を持つ"
+    major_rivers:
+      - name: "アルス川"
+        description: "王国中央を流れる大河。流域に農地が広がり、水運の大動脈"
+    notable_regions:
+      - name: "エルフの大森林（エルヴァーン）"
+        type: "forest"
+        description: "東方に広がる古代の大森林。エルフの国が存在し、外部者の立ち入りは制限される"
+      - name: "魔窟ダンジョン（奈落の塔）"
+        type: "dungeon"
+        description: "王都近郊に存在する謎の地下迷宮。魔物と財宝が眠り、冒険者が日々攻略に挑む"
+      - name: "灰色荒野"
+        type: "plains"
+        description: "西方の不毛地帯。200年前の魔王戦争の激戦地で、今も魔物が多く出没する"
+      - name: "南海岸・港湾都市カレア"
+        type: "coastal"
+        description: "南方の貿易港。多種族が集まる自由都市で、冒険者ギルドの総本部もここにある"
+
+  climate:
+    general: "温帯。四季あり。北方ほど寒冷で南方は温暖"
+    special_zones:
+      - "ドラゴン山脈山頂付近：万年雪・極寒"
+      - "エルヴァーン内部：魔法により常春が保たれている"
+
+  resources:
+    abundant:
+      - "鉄鉱石（ドラゴン山脈麓）"
+      - "農産物（アルス川流域）"
+      - "魔法植物（エルヴァーン周縁）"
+    scarce:
+      - "魔石（魔力を帯びた鉱石）：ダンジョン産のみ"
+      - "香辛料・南方産品：海路でしか入手できない"
+    contested:
+      - "魔石：冒険者ギルドと国家が採掘権を巡り常に緊張関係"
+
+# ============================================================
+# 魔法システム
+# ============================================================
+magic:
+  exists: true
+  prevalence: "rare"  # 人口の約3〜5%が魔法の才能を持つ
+
+  source:
+    type: "natural_energy"
+    description: "世界に満ちる魔力（マナ）を体内で変換して行使する。魔石はマナが結晶化したもの"
+    is_depletable: false  # マナ自体は自然回復するが、個人のMP（魔力量）には限界がある
+
+  cost:
+    has_cost: true
+    cost_description: "術者の体内魔力（MP）を消費。MP切れは激しい疲労・意識喪失を引き起こす"
+    long_term_effects: "上位魔法の乱用は寿命を縮めるという伝承があるが、医学的には未証明"
+
+  learning:
+    requires_talent: true
+    training_duration: "才能があれば3〜5年で実戦レベル。才能なしは習得不可"
+    training_method: "apprenticeship または 王立魔法学院（貴族・富裕層向け）"
+
+  casting:
+    requires_words: true   # 詠唱あり（上位魔法は詠唱省略不可）
+    requires_components: false  # 通常は不要。儀式魔法のみ必要
+    requires_ritual: false
+    casting_time: "instant〜minutes（魔法の規模による）"
+    can_combine_casters: true  # 複数術者による合唱詠唱で威力倍増
+
+  social_status:
+    general_perception: "respected（畏敬と若干の恐れ）"
+    legal_status: "licensed"
+    requires_license: true  # 冒険者ギルドまたは国家への登録が必要
+    political_power: "貴族・軍の魔法師は高い発言権を持つが、一般術者は平民扱い"
+
+  technology_relationship: "complement"  # 魔法が存在するが技術も並行発展。魔法は高コストなので代替にはなっていない
+
+  prohibited_magic:
+    - "死霊術・アンデッド召喚（宗教的タブー）"
+    - "精神支配魔法（国家法で禁止）"
+    - "時間操作魔法（理論上は存在するが禁忌中の禁忌）"
+
+  military_use:
+    used_in_warfare: true
+    tactical_role: "artillery"  # 王国軍には「魔法師部隊」が存在。主に遠距離攻撃・防壁展開に使用
+
+  healing_magic:
+    exists: true
+    how_it_works: "光属性の魔法。司祭・神官が習得することが多い。完全回復は上位魔法が必要で消耗が激しい"
+
+# ============================================================
+# 種族
+# ============================================================
+races:
+  humans:
+    present: true
+    dominant: true
+    distribution: "人口の約75%。ガルディア王国は人間が支配層"
+
+  non_human:
+    - name: "エルフ"
+      present: true
+      rarity: "uncommon"
+      typical_habitat: "エルヴァーン大森林"
+      social_integration: "segregated"  # 自国に引きこもりがち。王都には少数が大使として駐在
+      magic_affinity: "非常に高い。平均的なエルフが人間の中級魔法師相当の自然魔法を使える"
+      notes: "長命種（数百年生きる）。人間に対して選民意識があることもある"
+
+    - name: "ドワーフ"
+      present: true
+      rarity: "uncommon"
+      typical_habitat: "ドラゴン山脈の地下都市"
+      social_integration: "integrated"  # 交易で人間社会に頻繁に出てくる
+      magic_affinity: "低い（魔法より鍛冶・工芸を重視）"
+      notes: "鍛冶の名人として知られ、最高品質の武器防具を製造する。酒好きの豪快な気質"
+
+    - name: "ビーストマン（獣人）"
+      present: true
+      rarity: "uncommon"
+      typical_habitat: "各地に散在。西方の草原に部族社会を形成"
+      social_integration: "integrated"  # 人間社会に溶け込んでいるが差別も残る
+      magic_affinity: "低いが、身体能力（筋力・速度・感覚）が人間より優れる"
+      notes: "なろう系定番。狐・狼・猫など様々な亜種あり。冒険者として活躍する者も多い"
+
+    - name: "ハーフエルフ"
+      present: true
+      rarity: "rare"
+      typical_habitat: "人間社会・王都に多い"
+      social_integration: "integrated"  # ただし両種族から疎まれることも
+      magic_affinity: "人間より高く、エルフより低い。バランス型"
+      notes: "エルフと人間の混血。どちらの社会にも完全には属せない孤独を抱えがちな設定"
+
+# ============================================================
+# 歴史
+# ============================================================
+history:
+  age_of_world: "文明史は約2000年。ガルディア王国建国は約500年前"
+  origin_of_people: "created_by_gods"  # 創世神話によれば、大神アルヴが各種族を創造した
+
+  major_events:
+    - name: "大魔王戦争"
+      approximate_time: "約200年前"
+      description: "魔王ザルドゥームが魔物の大軍を率いて人間諸国に侵攻。諸国連合軍と勇者パーティが魔王を討伐"
+      lasting_impact: "西方の灰色荒野が廃墟となり今も回復せず。勇者の伝説が宗教・文化に深く根付く"
+    - name: "ガルディア王国建国"
+      approximate_time: "約500年前"
+      description: "英雄王ガルディウスが諸侯を統一し王国を建設。冒険者ギルドもこの時期に正式設立"
+      lasting_impact: "封建制度と冒険者制度が確立。現在の社会の基盤"
+    - name: "奈落の塔出現"
+      approximate_time: "約100年前"
+      description: "王都近郊に突如地下迷宮が出現。魔物と宝物が無尽蔵に湧き出すことが判明"
+      lasting_impact: "冒険者産業が急拡大。王国経済の柱の一つになる"
+
+  current_situation:
+    ongoing_conflicts:
+      - "北方のドラゴン山脈での魔物活性化（原因不明）"
+      - "冒険者ギルドと王国の魔石採掘権を巡る政治対立"
+    recent_wars:
+      - belligerents: "ガルディア王国 vs 東方のレスティア共和国"
+        outcome: "停戦・現状維持"
+        how_long_ago: "約30年前"
+
+  languages:
+    count: 4
+    common_tongue:
+      name: "共通語（アルヴ語）"
+      used_by: "人間・ハーフエルフ・交易に関わる全種族"
+    trade_language:
+      name: "共通語と同一"
+      used_by: "全種族共通"
+    other_languages:
+      - "エルフ語（古語にして魔法言語。詠唱に使われる）"
+      - "ドワーフ語（鍛冶・採掘の専門用語が豊富）"
+      - "獣人諸語（部族ごとに異なる）"
+
+# ============================================================
+# 社会と文化（ガルディア王国）
+# ============================================================
+society:
+  population:
+    approximate: "王国全体で約300万人。首都リウムスは約20万人"
+    distribution: "農村70% / 都市30%"
+
+  social_structure:
+    family_unit: "nuclear"  # 核家族が基本。農民層は拡大家族も多い
+    class_system:
+      - class: "王族・大貴族"
+        description: "土地所有・政治権力を持つ支配層"
+        mobility: "impossible"
+      - class: "小貴族・騎士"
+        description: "地方領主・軍人貴族。功績により叙爵される場合もある"
+        mobility: "difficult"
+      - class: "商人・ギルドマスター"
+        description: "富裕層市民。冒険者ギルド幹部もここに含まれる"
+        mobility: "possible"
+      - class: "冒険者（Sランク〜Eランク）"
+        description: "ランク制度による実力主義。高ランクは貴族と対等に交渉できる"
+        mobility: "easy（実力次第）"
+      - class: "平民（農民・職人・商人）"
+        description: "人口の大多数"
+        mobility: "possible（冒険者登録で上昇可能）"
+      - class: "奴隷・最下層"
+        description: "戦争捕虜・借金による隷属。王国法で保護規定あるが実態は過酷"
+        mobility: "difficult"
+    disenfranchised_groups:
+      - "獣人（差別・偏見が残る地域がある）"
+      - "魔法を持たない平民出身の魔法師（登録制度の壁）"
+
+  customs:
+    coming_of_age:
+      description: "15歳で成人。冒険者ギルドへの登録が解禁される。王都では「成人の誓い」を神殿で行う"
+      different_by_gender: false
+    marriage:
+      description: "当事者の合意＋家族の承認が基本。貴族は政略結婚が多い"
+      who_sanctions: "religious"  # アルヴ教会で祝福を受けるのが正式
+    death_burial:
+      description: "土葬が基本。神官による「魂の解放」儀式を行い、アンデッド化を防ぐ"
+
+  values:
+    most_important:
+      - "実力主義（冒険者ランクが社会的信用に直結）"
+      - "義理と仁義（仲間・恩人への忠誠）"
+      - "勇者信仰（大魔王を倒した勇者を英雄視）"
+    acceptable_but_unusual_in_reality:
+      - "冒険者が魔物を日常的に殺傷することは社会的に完全に認められている"
+      - "ダンジョンでの「持ち帰り自由」慣習（国家が管理しない財宝は拾得者のもの）"
+      - "10代少年少女が武器を持ち、危険なダンジョンに挑むことが奨励される"
+    major_taboos:
+      - "死霊術の使用（神への冒涜）"
+      - "仲間の裏切り（冒険者社会では死刑相当の不名誉）"
+      - "魔王崇拝"
+
+  religion:
+    gods_exist: true
+    gods_intervene_directly: true  # 勇者への「加護」付与など、直接介入の記録がある
+    major_religions:
+      - name: "アルヴ教（光の教会）"
+        deity_count: 1  # 主神アルヴ（創造神・光の神）＋複数の下位神格
+        stance_on_magic: "supports"  # 神聖魔法は教会が管理
+        political_power: "高い。国教に近い地位。神官が行政に関与"
+      - name: "大地母神信仰"
+        deity_count: 1
+        stance_on_magic: "neutral"
+        political_power: "低い。農村部の民間信仰"
+    state_religion: "アルヴ教（事実上の国教）"
+    religious_freedom: true  # 表向きは自由だが、アルヴ教の影響力が強い
+
+# ============================================================
+# 政治（ガルディア王国）
+# ============================================================
+politics:
+  government_type: "feudal"  # 封建的立憲君主制
+  stability: "tense"  # 表向きは安定しているが貴族・ギルド・教会の三つ巴の権力闘争が水面下で続く
+
+  head_of_state:
+    title: "国王（現：アルディウス3世）"
+    succession: "hereditary"
+
+  services_provided:
+    - "軍（王国正規軍・騎士団）"
+    - "裁判所（王都・各都市）"
+    - "道路・橋の整備（幹線のみ）"
+    - "魔物討伐の依頼管理（冒険者ギルドへ委託）"
+
+  law:
+    written_law: true  # 「ガルディア法典」が存在
+    punishment_philosophy: "punitive"  # 応報的。公開処刑・追放・奴隷刑など
+    notable_laws:
+      - "冒険者登録法：15歳以上・ギルド登録なしでの武装ダンジョン入場禁止"
+      - "魔法師登録法：魔法の使用には国家またはギルドへの登録が必要"
+      - "死霊術禁止令：違反者は火刑"
+
+  foreign_relations:
+    allies:
+      - "ドワーフ連邦（軍事同盟・武器貿易）"
+      - "南方カレア自由都市連合（海上貿易）"
+    rivals:
+      - "東方レスティア共和国（領土・魔石利権で対立）"
+    at_war_with: []
+
+# ============================================================
+# 経済
+# ============================================================
+economy:
+  primary_industries:
+    - "農業（アルス川流域・王国の基幹産業）"
+    - "鉱業（ドラゴン山脈麓の鉄・魔石）"
+    - "冒険者産業（ダンジョン攻略・魔物討伐）"
+    - "製造業（武器・防具・生活用品）"
+
+  trade:
+    exports:
+      - "鉄製品・武具（ドワーフ産の高品質品を含む）"
+      - "魔石・魔法素材"
+      - "農産物"
+    imports:
+      - "香辛料・南方産品（カレア経由）"
+      - "魔法書・古代遺物（エルフ・遺跡産）"
+      - "染料・絹布"
+    importance: "important"
+
+  currency:
+    system: "coins"
+    who_mints: "王国造幣局"
+    common_denominations:
+      - "白金貨（プラチナ）：最高額。大規模取引のみ"
+      - "金貨：冒険者報酬・高額商品"
+      - "銀貨：一般的な商取引の基準"
+      - "銅貨：日常の小額取引"
+
+  transportation:
+    land:
+      - "馬・馬車（幹線道路）"
+      - "徒歩（地方道）"
+      - "魔法師による転移魔法（高コスト：金貨20枚以上）"
+    water:
+      - "河川舟運（アルス川）"
+      - "帆船（南海岸）"
+    magical:
+      - "転移魔法（王都・主要都市間に転移門あり。利用料高額）"
+      - "使い魔による伝令"
+
+  communication:
+    methods:
+      - "使者・飛脚（標準的な手段）"
+      - "魔法の伝言石（近距離・高コスト）"
+      - "魔法鳥（訓練した使い魔による手紙運搬）"
+    speed: "王都〜地方主要都市間：馬で3〜7日。伝言石なら即時（ただし短文のみ）"
+
+# ============================================================
+# 技術水準
+# ============================================================
+technology:
+  equivalent_era: "medieval"
+  notable_inventions:
+    - "魔道具：魔石を動力源とした照明・暖房・通信機器。富裕層が使用"
+    - "ポーション：魔法植物を調合した回復薬。冒険者の必携品"
+    - "魔法陣：建物や武器に刻む永続魔法効果の付与技術"
+  magic_replaced_technology:
+    - area: "照明"
+      description: "街灯は魔道具（光の水晶）が使われる。一般家庭は松明・蝋燭"
+    - area: "通信"
+      description: "緊急通信は伝言石・魔法鳥。ただし高コストなので日常は使者"
+    - area: "医療"
+      description: "回復魔法とポーションが発達しているため、外科手術の技術は未発達"
+  underdeveloped_areas:
+    - "火薬・銃器（魔法があるため発展しなかった）"
+    - "印刷技術（手書き写本が主流。書物は高級品）"
+    - "長距離通信インフラ（転移魔法が高コストなため情報伝達は遅い）"
+
+# ============================================================
+# 整合性メモ
+# ============================================================
+consistency_notes:
+  resolved_tensions:
+    - issue: "魔法が希少なのに社会に魔道具が普及している"
+      resolution: "魔道具は魔石（ダンジョン産）を動力とするため、魔法の才能がなくても使用可能。魔石の供給がダンジョン産業に依存しており、経済的な緊張構造を生む"
+    - issue: "死霊術禁止なのに王国軍がアンデッドを使わない理由"
+      resolution: "アルヴ教の強い影響と「魂の解放」埋葬儀式により、アンデッドの発生自体を文化的・宗教的に強く抑制している"
+    - issue: "10代の冒険者が社会的に許容される理由"
+      resolution: "「勇者信仰」と成人年齢15歳という文化的背景。また魔物の脅威が現実的なため、若者の戦力を無駄にしない実用的側面もある"
+  tbd_items:
+    - "世界の外縁（海の果て・大陸の範囲）"
+    - "魔王が復活する可能性・次の脅威の詳細"
+    - "エルフの国の内部政治"
+    - "冒険者ランク（S〜E）の具体的な評価基準"
+  story_hooks:
+    - "奈落の塔の深層に何者かが意図的に作った部屋が発見される"
+    - "200年前に倒されたはずの魔王の復活を示す予言が出回る"
+    - "冒険者ギルドと王国の魔石利権争いが武力衝突に発展しそうになる"
+    - "ドラゴン山脈の魔物活性化は、ドワーフが禁忌の古代遺跡を掘り当てたことが原因"
+    - "獣人差別撤廃運動が起き、平民・冒険者層と保守貴族が激しく対立"

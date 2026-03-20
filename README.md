@@ -53,6 +53,13 @@ FWBG/
                 └── world-template.md            ← world-settings.yaml テンプレート
 ```
 
+## サンプル
+
+なろう系定番の設定で質問に答えたサンプルを
+`sample_world-settings.yaml` に入れておきました。
+
+作成動画： https://x.com/auxps/status/2034988224834413045
+
 ## 参考資料
 
 - 原典: [Fantasy Worldbuilding Questions by Patricia C. Wrede](http://www.sfwa.org/2009/08/fantasy-worldbuilding-questions/) (© 1996)
