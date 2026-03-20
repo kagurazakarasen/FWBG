@@ -7,6 +7,34 @@
 Patricia C. Wrede 著「[Fantasy Worldbuilding Questions](./FWBGQ/fantasy-worldbuilding-questions.doc.md)」をベースに、  
 Copilot エージェントとの会話を通じてファンタジー世界設定ファイル（`world-settings.yaml`）を生成します。
 
+## インストール
+
+### 必要環境
+
+- [VS Code](https://code.visualstudio.com/) 1.99 以上
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) 拡張機能（要サブスクリプション）
+- GitHub Copilot Chat が有効になっていること
+
+### セットアップ手順
+
+1. **このリポジトリをクローンまたはダウンロード**
+
+   ```bash
+   git clone https://github.com/kagurazakarasen/FWBG
+   ```
+
+2. **VS Code でフォルダを開く**
+
+   ```bash
+   code FWBG
+   ```
+
+3. **完了** — `.github/skills/` 配下のスキルファイルが自動的に Copilot に読み込まれます。追加のインストール作業は不要です。
+
+> **注意**: VS Code のエージェントカスタマイズ機能（`.github/skills/`）は VS Code 1.99 以降でサポートされています。
+
+---
+
 ## 使い方
 
 VS Code の GitHub Copilot Chat で以下のように入力するとスキルが起動します。
